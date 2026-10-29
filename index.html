@@ -1,0 +1,351 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Eight Years Together</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: a contour-line hero, then a trail of eight year markers; each opens its photo full-size. */
+:root {
+  --navy: #082D5D;        /* brand navy */
+  --sky: #81B1E2;         /* brand sky blue */
+  --bg: #F1F6FC;          /* pale ice */
+  --surface: #FFFFFF;
+  --fg: #082D5D;
+  --muted: #3F5A7E;
+  --line: #CFDEEF;
+  --contour: #D6E5F5;
+  --accent: #1F5FA8;      /* mid blue between navy and sky, readable on white */
+  --accent-soft: #DCEAF8;
+  --hero-bg: #082D5D;
+  --hero-fg: #FFFFFF;
+  --hero-muted: #C9DCF1;
+  --hero-line: #1A4A82;
+  --hero-accent: #81B1E2;
+  --scrim: rgba(4, 22, 46, 0.94);
+  --font-display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #04172F; --surface: #0A2A52; --fg: #EAF2FB; --muted: #A9C5E4;
+    --line: #1B4677; --contour: #12386A; --accent: #81B1E2; --accent-soft: #154276;
+    --hero-bg: #082D5D; --hero-line: #1D4F8A;
+    --scrim: rgba(2, 12, 26, 0.95); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #04172F; --surface: #0A2A52; --fg: #EAF2FB; --muted: #A9C5E4;
+  --line: #1B4677; --contour: #12386A; --accent: #81B1E2; --accent-soft: #154276;
+  --hero-bg: #082D5D; --hero-line: #1D4F8A;
+  --scrim: rgba(2, 12, 26, 0.95); color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 17px; line-height: 1.55;
+}
+.wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Hero */
+.hero { position: relative; overflow: hidden; background: var(--hero-bg); color: var(--hero-fg); }
+.hero .eyebrow { color: var(--hero-accent); }
+.hero .wrap.hero-inner { flex-direction: row; flex-wrap: wrap-reverse; align-items: center; justify-content: space-between; gap: 28px 40px; }
+.hero-text { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+.logo { width: clamp(120px, 20vw, 220px); height: auto; flex-shrink: 0; border-radius: 50%; box-shadow: 0 0 0 4px rgba(129, 177, 226, 0.35), 0 18px 40px -18px rgba(0, 0, 0, 0.6); }
+.hero .lead { color: var(--hero-muted); }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero .wrap {
+  position: relative; padding-block: clamp(56px, 10vw, 112px) clamp(40px, 7vw, 72px);
+  display: flex; flex-direction: column; gap: 18px;
+}
+.eyebrow {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); margin: 0;
+}
+h1 {
+  font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
+  font-size: clamp(56px, 11vw, 128px); line-height: 0.9; letter-spacing: 0.01em;
+  margin: 0; text-wrap: balance;
+}
+.lead { max-width: 34em; margin: 0; color: var(--muted); font-size: clamp(17px, 2vw, 19px); }
+
+/* Year trail */
+.trail { padding-block: clamp(40px, 6vw, 72px); display: flex; flex-direction: column; gap: 20px; }
+.trail-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.trail-head h2 { font-size: 15px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin: 0; }
+.trail-head p { margin: 0; color: var(--muted); font-size: 15px; }
+
+.years { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; list-style: none; margin: 0; padding: 0; }
+@media (max-width: 760px) { .years { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.year {
+  position: relative; width: 100%; aspect-ratio: 4 / 5; max-width: 100%;
+  display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start;
+  padding: 16px 18px 18px; text-align: left; cursor: pointer;
+  background: var(--surface); color: var(--fg);
+  border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
+  font: inherit;
+  transition: transform 220ms ease-out, border-color 220ms ease-out, box-shadow 220ms ease-out;
+}
+.year svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.year svg path { fill: none; stroke: var(--contour); stroke-width: 1.2; transition: stroke 220ms ease-out; }
+.year .step {
+  position: relative; font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums;
+}
+.year .num {
+  position: relative; font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(52px, 8vw, 84px); line-height: 0.85; font-variant-numeric: tabular-nums;
+}
+.year .open {
+  position: relative; display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 600; color: var(--accent);
+}
+.year .open svg { position: static; width: 16px; height: 16px; }
+.year .open svg path { stroke: currentColor; stroke-width: 2; }
+.year:hover, .year:focus-visible {
+  transform: translateY(-3px); border-color: var(--accent);
+  box-shadow: 0 10px 24px -14px rgba(10, 20, 25, 0.45);
+}
+.year:hover svg path, .year:focus-visible svg path { stroke: var(--accent-soft); }
+.year:hover .open svg path, .year:focus-visible .open svg path { stroke: currentColor; }
+.year:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.year.seen .step::after { content: " · opened"; color: var(--accent); }
+
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 32px 48px; display: flex; flex-direction: column; gap: 6px; }
+footer p { margin: 0; max-width: 36em; }
+footer .sign { font-family: var(--font-display); font-weight: 700; font-size: 28px; text-transform: uppercase; color: var(--accent); }
+
+/* Photo viewer */
+dialog {
+  width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; border: 0; padding: 0;
+  background: var(--scrim); color: #F1F5F6;
+}
+dialog::backdrop { background: transparent; }
+.viewer {
+  height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 12px;
+  padding-top: max(16px, env(safe-area-inset-top, 0px));
+  padding-bottom: max(16px, env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.viewer-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.viewer-year { font-family: var(--font-display); font-weight: 800; font-size: clamp(36px, 6vw, 56px); line-height: 1; margin: 0; }
+.viewer figure { margin: 0; min-height: 0; display: flex; align-items: center; justify-content: center; }
+.viewer img {
+  max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 4px;
+  animation: reveal 380ms ease-out;
+}
+@keyframes reveal { from { opacity: 0; transform: scale(0.985); } to { opacity: 1; transform: none; } }
+.viewer-nav { display: flex; justify-content: center; align-items: center; gap: 16px; }
+.viewer-count { font-size: 14px; color: #B9C7CC; font-variant-numeric: tabular-nums; min-width: 4.5em; text-align: center; }
+.icon-btn {
+  width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.06); color: #F1F5F6; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: background 160ms ease-out, border-color 160ms ease-out;
+}
+.icon-btn:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.5); }
+.icon-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.icon-btn svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+@media (prefers-reduced-motion: reduce) {
+  .year, .viewer img { transition: none; animation: none; }
+  .year:hover, .year:focus-visible { transform: none; }
+}
+</style>
+
+<header class="hero">
+  <canvas id="topo" aria-hidden="true"></canvas>
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">For our alumni</p>
+      <h1>Eight years together</h1>
+      <p class="lead">Eight years of glaciers, moraines, cold mornings and shared pots of food. Pick a year to open its photo.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap trail">
+  <div class="trail-head">
+    <h2>Choose a year</h2>
+    <p>Tap a year to open its photo</p>
+  </div>
+  <ul class="years" id="years"></ul>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Thank you for every step you took with us, and for everything you carried up the mountain and back.</p>
+    <p class="sign">With love, the AoS Team</p>
+  </div>
+</footer>
+
+<dialog id="viewer" aria-labelledby="viewer-year">
+  <div class="viewer">
+    <div class="viewer-top">
+      <p class="viewer-year" id="viewer-year"></p>
+      <button class="icon-btn" id="close" type="button" aria-label="Close photo">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <figure><img id="viewer-img" alt=""></figure>
+    <div class="viewer-nav">
+      <button class="icon-btn" id="prev" type="button" aria-label="Previous year">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <span class="viewer-count" id="viewer-count"></span>
+      <button class="icon-btn" id="next" type="button" aria-label="Next year">
+        <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+// One entry per year: change the year or the description here.
+const YEARS = [
+  { year: 2019, src: "photos/photo-1.jpg", alt: "The group sitting in front of an old stone and timber hut beside a glacier" },
+  { year: 2020, src: "photos/photo-7.jpg", alt: "A snow-covered valley with a glacier beneath dark rocky peaks" },
+  { year: 2021, src: "photos/photo-8.jpg", alt: "A wide glacier under grey skies, seen from a rocky moraine" },
+  { year: 2022, src: "photos/photo-2.jpg", alt: "The group smiling together in a sunny green mountain valley" },
+  { year: 2023, src: "photos/photo-3.jpg", alt: "The group crouching together on a paved path under tall trees" },
+  { year: 2024, src: "photos/photo-4.jpg", alt: "The group sharing a meal on mats outside, with tents in the background" },
+  { year: 2025, src: "photos/photo-5.jpg", alt: "The group in matching jackets and full packs, ready to set off" },
+  { year: 2026, src: "photos/photo-6.jpg", alt: "The group posing under trees, waving and giving thumbs up" },
+];
+
+const list = document.getElementById("years");
+const dlg = document.getElementById("viewer");
+const img = document.getElementById("viewer-img");
+const yearEl = document.getElementById("viewer-year");
+const countEl = document.getElementById("viewer-count");
+let current = 0;
+let lastTrigger = null;
+
+// Simple seeded contour squiggles so every tile has its own little "map".
+function contourSVG(seed) {
+  let s = seed * 9301 + 49297;
+  const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+  const cx = 30 + rnd() * 40, cy = 40 + rnd() * 40;
+  let paths = "";
+  for (let r = 1; r <= 7; r++) {
+    const pts = [];
+    for (let a = 0; a <= 24; a++) {
+      const t = (a / 24) * Math.PI * 2;
+      const wob = 1 + 0.18 * Math.sin(t * 3 + seed) + 0.1 * Math.cos(t * 5 + r);
+      const rad = r * 11 * wob;
+      pts.push(`${(cx + Math.cos(t) * rad).toFixed(1)},${(cy + Math.sin(t) * rad * 1.15).toFixed(1)}`);
+    }
+    paths += `<path d="M${pts.join(" L")}Z"/>`;
+  }
+  return `<svg viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${paths}</svg>`;
+}
+
+YEARS.forEach((y, i) => {
+  const li = document.createElement("li");
+  li.innerHTML = `
+    <button class="year" type="button" id="year-${y.year}" aria-label="Open the photo from ${y.year}">
+      ${contourSVG(i + 3)}
+      <span class="step">Year ${i + 1} of ${YEARS.length}</span>
+      <span class="num">${y.year}</span>
+      <span class="open">Open photo
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </button>`;
+  li.querySelector("button").addEventListener("click", (e) => open(i, e.currentTarget));
+  list.appendChild(li);
+});
+
+// Preload neighbours for quick paging.
+function preload(i) { const p = new Image(); p.src = YEARS[(i + YEARS.length) % YEARS.length].src; }
+
+function show(i) {
+  current = (i + YEARS.length) % YEARS.length;
+  const y = YEARS[current];
+  img.style.animation = "none"; void img.offsetWidth; img.style.animation = "";
+  img.src = y.src; img.alt = y.alt;
+  yearEl.textContent = y.year;
+  countEl.textContent = `${current + 1} / ${YEARS.length}`;
+  document.getElementById(`year-${y.year}`).classList.add("seen");
+  preload(current + 1); preload(current - 1);
+}
+function open(i, trigger) {
+  lastTrigger = trigger;
+  show(i);
+  if (!dlg.open) dlg.showModal();
+}
+function close() { dlg.close(); }
+dlg.addEventListener("close", () => { if (lastTrigger) lastTrigger.focus(); });
+
+document.getElementById("close").addEventListener("click", close);
+document.getElementById("prev").addEventListener("click", () => show(current - 1));
+document.getElementById("next").addEventListener("click", () => show(current + 1));
+dlg.addEventListener("click", (e) => { if (e.target.tagName === "FIGURE") close(); });
+dlg.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft") show(current - 1);
+  if (e.key === "ArrowRight") show(current + 1);
+});
+
+// Swipe between years on phones.
+let x0 = null;
+dlg.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+dlg.addEventListener("touchend", (e) => {
+  if (x0 === null) return;
+  const dx = e.changedTouches[0].clientX - x0;
+  if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+  x0 = null;
+});
+
+// Topographic contour lines behind the title.
+const canvas = document.getElementById("topo");
+const ctx = canvas.getContext("2d");
+function field(x, y) {
+  return Math.sin(x * 0.006) * 1.1 + Math.cos(y * 0.009 + x * 0.002) * 0.9 +
+         Math.sin((x + y) * 0.004) * 0.7 + Math.cos(x * 0.011 - y * 0.005) * 0.4;
+}
+function drawTopo() {
+  const r = canvas.getBoundingClientRect();
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.width = Math.round(r.width * dpr); canvas.height = Math.round(r.height * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, r.width, r.height);
+  const css = getComputedStyle(document.documentElement);
+  const step = 8, cols = Math.ceil(r.width / step) + 1, rows = Math.ceil(r.height / step) + 1;
+  const v = [];
+  for (let j = 0; j < rows; j++) { v[j] = []; for (let i = 0; i < cols; i++) v[j][i] = field(i * step, j * step); }
+  ctx.lineWidth = 1;
+  for (let k = -2.6, n = 0; k <= 2.6; k += 0.26, n++) {
+    ctx.strokeStyle = (n % 5 === 0) ? css.getPropertyValue("--hero-accent").trim() : css.getPropertyValue("--hero-line").trim();
+    ctx.globalAlpha = (n % 5 === 0) ? 0.55 : 1;
+    ctx.beginPath();
+    for (let j = 0; j < rows - 1; j++) for (let i = 0; i < cols - 1; i++) {
+      const a = v[j][i], b = v[j][i + 1], c = v[j + 1][i + 1], d = v[j + 1][i];
+      const x = i * step, y = j * step, pts = [];
+      const edge = (p, q, x1, y1, x2, y2) => {
+        if ((p < k) !== (q < k)) { const t = (k - p) / (q - p); pts.push([x1 + (x2 - x1) * t, y1 + (y2 - y1) * t]); }
+      };
+      edge(a, b, x, y, x + step, y); edge(b, c, x + step, y, x + step, y + step);
+      edge(c, d, x + step, y + step, x, y + step); edge(d, a, x, y + step, x, y);
+      if (pts.length >= 2) { ctx.moveTo(pts[0][0], pts[0][1]); ctx.lineTo(pts[1][0], pts[1][1]); }
+      if (pts.length === 4) { ctx.moveTo(pts[2][0], pts[2][1]); ctx.lineTo(pts[3][0], pts[3][1]); }
+    }
+    ctx.stroke();
+  }
+  ctx.globalAlpha = 1;
+}
+drawTopo();
+let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(drawTopo, 120); });
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawTopo);
+new MutationObserver(drawTopo).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+if (document.fonts) document.fonts.ready.then(drawTopo);
+</script>
+
+</body></html>
